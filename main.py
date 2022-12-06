@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 from tkinter import * # tkinter의 모든 함수 가져오기
-from PyQt5.QtWidgets import QApplication, QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout, QPushButton, QDialog
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPdfWriter, QPagedPaintDevice, QPainter, QScreen, QPixmap
-from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
-import sys
-import random
 import openpyxl
 #from datetime improt datetime
 
@@ -13,20 +6,6 @@ import openpyxl
 #def time():
 
 #def ID_a():
-
-
-def btnClick(self):
-    # 프린터 생성, 실행
-    printer = QPrinter()
-    dlg = QPrintDialog(printer, self)
-    if dlg.exec() == QDialog.Accepted:
-        # Painter 생성
-        qp = QPainter()
-        qp.begin(printer)
-
-        self.table.render(qp)
-
-        qp.end()
 
 def close():
     win.quit()
@@ -41,17 +20,22 @@ win.option_add("*Font", "맑은고딕 11") # 전체 폰트
 
 #########################   excel   ##########################
 
-wb = openpyxl.load_workbook("C:\\Users\\semi4\\Desktop\\python\\연습용.xlsx")
-시트 = wb["Sheet1"]
+wb = openpyxl.load_workbook('건양대.xlsx') #엑셀 파일 불러오기
+매점 = wb["매점물품list"] #매점물품list 시트 읽기
 
-
+########################     test   ##########################
+row_range_all = 매점[1:매점.max_row] #매점물품list 셀 전체 읽어오기
+for rows in row_range_all:
+    for cell in rows:
+        print(cell.value, end=" ")
+    print()
 #########################    menu   ##########################
 
 menu = Menu(win)
 
 menu_1 = Menu(menu, tearoff = 0)
 menu_1.add_command(label = "로그인")
-menu_1.add_command(label = "인쇄", command = )
+menu_1.add_command(label = "인쇄")
 menu_1.add_command(label = "장부")
 menu_1.add_separator()
 menu_1.add_command(label = "종료", command = close)
@@ -129,7 +113,7 @@ Set.config(width=10,height=3)
 리스트.yview()
 리스트.insert(0, "1번")
 리스트.insert(1, "2번") #반복문으로 딕셔너리, 튜플, 리스트 사용 가
-리스트.insert(2, 시트)
+리스트.insert(2, row_range_all)
 
 #########################   place  ##########################
 
@@ -173,8 +157,3 @@ Set.place(x=900, y=150)
 리스트.place(x=10, y=210)
 
 win.mainloop() # 창 실행
-=======
-import os
-
-exestart = os.system('C:\\Users\\user\\Desktop\\11.pdf')
->>>>>>> bbe775805edfa3fac6bcd34d15f8a8102fec24bf
