@@ -45,7 +45,7 @@ def openxl(): #기본 물품에 item 추가
 
 
 
-      gi
+
     #
     openxl=Tk()
 
