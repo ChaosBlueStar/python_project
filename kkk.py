@@ -1,11 +1,16 @@
 from tkinter import * # tkinter의 모든 함수 가져오기
 from tkinter import messagebox
 import openpyxl
+import os
+
 
 #from datetime improt datetime
 
 #def time():
 
+#H 외부 파일 실행 , import os 필요.
+#def es():
+#    os.system('C:\\Users\\user\\Desktop\\11.pdf')
 
 def myFunc(): #DK 테스트용 재출력 버튼에 연결되어 있음
     messagebox.showinfo("messagebox","ID에 맞는 정보를 불러왔습니다.\n#불러오기 기능 추가필요.#") #H 메세지 내용 추가
@@ -16,6 +21,15 @@ def savems():  # H 테스트용 저장 버튼에 연결되어 있음
 def excel(): #DK 리스트에 한줄로 insert
     wb = openpyxl.load_workbook(home, data_only=True) #값만 받기
     ws = wb['매점물품list']
+
+
+#def ext():
+#    wb = openpyxl.load_workbook(home, data_only=True)  # 값만 받기
+#    ws = wb['매점물품list']
+#    sumi = wb['5. 최종수납']
+#    sumi[('G12').value]
+
+
 
     one_line = "" #DK 이 변수에 한줄 저장
     for k in range(1, 8):
@@ -71,7 +85,7 @@ menu = Menu(win)
 
 menu_1 = Menu(menu, tearoff = 0)
 menu_1.add_command(label = "로그인")
-menu_1.add_command(label = "인쇄")
+menu_1.add_command(label = "인쇄")#,command = es #H command = "" 함수 입력
 menu_1.add_command(label = "장부")
 menu_1.add_separator()
 menu_1.add_command(label = "종료", command = close)
@@ -125,6 +139,7 @@ ID.config(width=10,relief="solid",borderwidth=2)
 안치기간2.config(width=20,relief="solid",borderwidth=2)
 수납금액 = Entry(win)
 수납금액.config(width=20,relief="solid",borderwidth=2)
+#수납금액.insert(0,ext)
 받은금액 = Entry(win)
 받은금액.config(width=20,relief="solid",borderwidth=2)
 거스름돈 = Entry(win)
