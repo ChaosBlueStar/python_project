@@ -10,7 +10,7 @@ import tkinter as tk
 import os
 
 def openxl(): #기본 물품에 item 추가
-    os.system('C:\\Users\\semi4\\Desktop\\excel\\test.xlsx') #엑셀 파일 열기 '' 사이에 경로 수정
+    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx') #엑셀 파일 열기 '' 사이에 경로 수정
     def close():
         openxl.quit()
         openxl.destroy()
@@ -200,7 +200,7 @@ def check(): #값 출력해서 확인하는 용도
     path = Path(room1)
     messagebox.showinfo("", str(path.is_file()))
     # messagebox.showinfo("",)
-    os.system('C:\\Users\\semi4\\Desktop\\excel\\netcoreapp3.1\\WinFormsApp11.exe') # c# exe 파일 열기
+    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\netcoreapp3.1\\WinFormsApp11.exe') # c# exe 파일 열기
 def save(): #저장관련: 개인정보, tree에 있는 목록 저장
     room=빈소.get()
     messagebox.showinfo("","빈소"+room+"에 저장 하시겠습니까?")
@@ -456,14 +456,14 @@ def clear_tree(): #빈 tree 출력
 
 ##################################################   global variable   ##########################
 
-home = 'C:\\Users\\semi4\\Desktop\\excel\\test.xlsx' #기본 물품 엑셀 위치 저장
+home = 'C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx' #기본 물품 엑셀 위치 저장
 
-room1='C:\\Users\\semi4\\Desktop\\excel\\room_one.xlsx'
-room2='C:\\Users\\semi4\\Desktop\\excel\\room_two.xlsx'
-room3='C:\\Users\\semi4\\Desktop\\excel\\room_three.xlsx'
-room4='C:\\Users\\semi4\\Desktop\\excel\\room_four.xlsx'
-room5='C:\\Users\\semi4\\Desktop\\excel\\room_five.xlsx'
-room6='C:\\Users\\semi4\\Desktop\\excel\\room_six.xlsx'
+room1='C:\\Users\\user\\Desktop\\python\\worksheet\\room_one.xlsx'
+room2='C:\\Users\\user\\Desktop\\python\\worksheet\\room_two.xlsx'
+room3='C:\\Users\\user\\Desktop\\python\\worksheet\\room_three.xlsx'
+room4='C:\\Users\\user\\Desktop\\python\\worksheet\\room_four.xlsx'
+room5='C:\\Users\\user\\Desktop\\python\\worksheet\\room_five.xlsx'
+room6='C:\\Users\\user\\Desktop\\python\\worksheet\\room_six.xlsx'
 
 nwb = openpyxl.Workbook()  # 엑셀 생성
 info=nwb.create_sheet("info")  # +sheet 이름 1
@@ -544,15 +544,15 @@ ID.config(width=10,relief="solid",borderwidth=2)
 닫기 = Button(win, text = "닫기",command=close)
 닫기.config(width=14,height=3)
 물품추가 = Button(win, text = "물품추가",command=openxl)
-물품추가.config(width=7,height=2)
+물품추가.config(width=9,height=2)
 물품삭제 = Button(win, text = "물품삭제")
-물품삭제.config(width=7,height=2)
+물품삭제.config(width=9,height=2)
 
 
 물품비우기 = Button(win, text = "물품 비우기")
-물품비우기.config(width=7,height=2, command=clear_tree)
+물품비우기.config(width=9,height=2, command=clear_tree)
 Set = Button(win, text = "checker")
-Set.config(width=7,height=2, command=check)
+Set.config(width=9,height=2, command=check)
 
 first()
 
@@ -581,11 +581,11 @@ ID.place(x=110,y=10)
 #버튼 위치
 
 저장.place(x= 440, y=10)
-불러오기.place(x=440,y=50)
-닫기.place(x=440, y=90)
-물품추가.place(x=700, y=270)
+불러오기.place(x=440,y=70)
+닫기.place(x=440, y=130)
+물품추가.place(x=700, y=260)
 물품삭제.place(x=700, y=310)
-물품비우기.place(x=700, y=230)
+물품비우기.place(x=700, y=210)
 Set.place(x=700, y=150)
 tree.place(x=170,y=210)
 리스트.place(x=48, y=236)
