@@ -7,13 +7,12 @@ import os.path
 from openpyxl.worksheet.table import Table, TableStyleInfo
 import tkinter.ttk
 import tkinter as tk
-import os
+
 
 
 def del_t():
     tree.delete(*tree.get_children())
 def openxl(): #기본 물품에 item 추가
-    os.system('excel/test.xlsx')
     # os.system(home)
     def close():
         openxl.quit()
@@ -201,7 +200,6 @@ def check(): #값 출력해서 확인하는 용도
         count += 1
     path = Path(room1)
     messagebox.showinfo("", str(path.is_file()))
-    os.system('netcoreapp3.1\\WinFormsApp11.exe')
     # messagebox.showinfo("",)
 def save(): #저장관련: 개인정보, tree에 있는 목록 저장
     room=빈소.get()
@@ -565,19 +563,68 @@ def loadxl():
     cancel.place(x=145,y=55)
 
     loadxl.mainloop()
+def openfile():
+    os.system(home)
+def shifter1():
+    리스트.delete(0,END)
+    og_l = []
+    count=0
+    row=[]
+    for rows in ws.iter_rows():  # 기본 물품의 rows 값
+        count += 1
 
+    for i in range(1, (count + 1)):  # og_list에 기본 물품 저장
+        for j in range(1, 8):
+            row.append(ws.cell(row=i, column=j).value)
+        og_l.append(row)
+        row = []
 
+    for i in range(1, count):
+        리스트.insert(i - 1, og_l[i][2])
+def shifter2():
+    리스트.delete(0,END)
+    og_l = []
+    count=0
+    for rows in ws2.iter_rows():  # 기본 물품의 rows 값
+        count += 1
+    row=[]
+    for i in range(1, (count + 1)):  # og_list에 기본 물품 저장
+        for j in range(1, 8):
+            row.append(ws2.cell(row=i, column=j).value)
+        og_l.append(row)
+        row = []
 
+    for i in range(1, count):
+        리스트.insert(i - 1, og_l[i][2])
+def shifter3():
+    리스트.delete(0,END)
+    og_l=[]
+    # messagebox.showinfo("","hello")
+    count=0
+    row=[]
+    for rows in ws3.iter_rows():  # 기본 물품의 rows 값
+        count += 1
+    # messagebox.showinfo("","world")
+    for i in range(1, (count + 1)):  # og_list에 기본 물품 저장
+        for j in range(1, 8):
+            row.append(ws3.cell(row=i, column=j).value)
+        og_l.append(row)
+        row = []
+
+    for i in range(1, count):
+        리스트.insert(i - 1, og_l[i][2])
+        # messagebox.showinfo("",리스트)
+    win.update()
 ##################################################   global variable   ##########################
 
-home = 'excel/test.xlsx' #기본 물품 엑셀 위치 저장
+home = 'excelhere/test.xlsx' #기본 물품 엑셀 위치 저장
 
-room1='excel/room_one.xlsx'
-room2='excel/room_two.xlsx'
-room3='excel/room_three.xlsx'
-room4='excel/room_four.xlsx'
-room5='excel/room_five.xlsx'
-room6='excel/room_six.xlsx'
+room1='excelhere/room_one.xlsx'
+room2='excelhere/room_two.xlsx'
+room3='excelhere/room_three.xlsx'
+room4='excelhere/room_four.xlsx'
+room5='excelhere/room_five.xlsx'
+room6='excelhere/room_six.xlsx'
 
 nwb = openpyxl.Workbook()  # 엑셀 생성
 info=nwb.create_sheet("info")  # +sheet 이름 1
@@ -585,6 +632,9 @@ items=nwb.create_sheet("items")  # +sheet 이름 2
 
 wb= openpyxl.load_workbook(home, data_only=True) #초기 시트 위치 저장(값으로)
 ws=wb['Sheet1'] #초기 시트 사용 선언
+ws2=wb['Sheet2']
+ws3=wb['Sheet3']
+wslist=[ws,ws2,ws3]
 
 
 global rooms
@@ -604,7 +654,7 @@ c_table=False
 
 ##################################################   tkinter   ##########################
 win = tk.Tk() # 창 생성
-win.geometry("750x720") # 창의 크기
+win.geometry("1200x720") # 창의 크기
 win.title("장례식장 재고관리 프로그램 Ver1.221123") # 창의 제목
 win.option_add("*Font", "맑은고딕 12") # 전체 폰트
 
@@ -665,11 +715,17 @@ ID.config(width=10,relief="solid",borderwidth=2)
 물품삭제 = Button(win, text = "물품삭제")
 물품삭제.config(width=7,height=2)
 
+시트1= Button(win, text = "시트1")
+시트1.config(width=7,height=2,command=shifter1)
+시트2 = Button(win, text = "시트2")
+시트2.config(width=7,height=2,command=shifter2)
+시트3 = Button(win, text = "시트3")
+시트3.config(width=7,height=2,command=shifter3)
 
 물품비우기 = Button(win, text = "물품 비우기")
 물품비우기.config(width=7,height=2)
 Set = Button(win, text = "프린트")
-Set.config(width=10,height=3, command=check)
+Set.config(width=10,height=3, command=openfile)
 
 first()
 
@@ -680,9 +736,9 @@ ID_lab.place(x=10,y=10)
 고인명_lab.place(x=210,y=10)
 상주명_lab.place(x=210,y=50)
 빈소_lab.place(x=10,y=50)
-수납금액_lab.place(x=420,y=10)
-받은금액_lab.place(x=420,y=50)
-거스름돈_lab.place(x=420,y=90)
+수납금액_lab.place(x=720,y=10)
+받은금액_lab.place(x=720,y=50)
+거스름돈_lab.place(x=720,y=90)
 기간.place(x=10,y=90)
 
 #엔트리 위치
@@ -692,19 +748,23 @@ ID.place(x=100,y=10)
 빈소.place(x=100,y=50)
 
 
-수납금액.place(x=510,y=10)
-받은금액.place(x=510,y=50)
-거스름돈.place(x=510,y=90)
+수납금액.place(x=810,y=10)
+받은금액.place(x=810,y=50)
+거스름돈.place(x=810,y=90)
 
 #버튼 위치
 
-저장.place(x= 10, y=150)
-불러오기.place(x=160,y=150)
-닫기.place(x=560, y=120)
-물품추가.place(x=48, y=207)
+시트1.place(x=10,y=100)
+시트2.place(x=10,y=140)
+시트3.place(x=10,y=180)
+
+저장.place(x= 310, y=150)
+불러오기.place(x=460,y=150)
+닫기.place(x=860, y=120)
+물품추가.place(x=148, y=157)
 # 물품삭제.place(x=700, y=310)
 # 물품비우기.place(x=700, y=230)
-Set.place(x=430, y=120)
+Set.place(x=730, y=120)
 tree.place(x=170,y=210)
 리스트.place(x=48, y=236)
 
