@@ -617,14 +617,14 @@ def shifter3():
     win.update()
 ##################################################   global variable   ##########################
 
-home = 'excelhere/test.xlsx' #기본 물품 엑셀 위치 저장
+home = 'test.xlsx' #기본 물품 엑셀 위치 저장
 
-room1='excelhere/room_one.xlsx'
-room2='excelhere/room_two.xlsx'
-room3='excelhere/room_three.xlsx'
-room4='excelhere/room_four.xlsx'
-room5='excelhere/room_five.xlsx'
-room6='excelhere/room_six.xlsx'
+room1='room_one.xlsx'
+room2='room_two.xlsx'
+room3='room_three.xlsx'
+room4='room_four.xlsx'
+room5='room_five.xlsx'
+room6='room_six.xlsx'
 
 nwb = openpyxl.Workbook()  # 엑셀 생성
 info=nwb.create_sheet("info")  # +sheet 이름 1
@@ -736,7 +736,7 @@ ID_lab.place(x=10,y=10)
 고인명_lab.place(x=210,y=10)
 상주명_lab.place(x=210,y=50)
 빈소_lab.place(x=10,y=50)
-수납금액_lab.place(x=720,y=10)
+수납금액_lab.place(x=720,y
 받은금액_lab.place(x=720,y=50)
 거스름돈_lab.place(x=720,y=90)
 기간.place(x=10,y=90)
