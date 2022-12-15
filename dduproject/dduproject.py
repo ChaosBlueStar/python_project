@@ -19,7 +19,8 @@ def question(a):                    #문제 생성하기
     b = random.randint(2, 4)
     numbers = [random.randint(2, 12) for i in range(b)]
     print(" * ".join([str(i) for i in numbers]))  # 출력을 위해 numbers를 str로 변환
-    result = np.prod(nu
+    result = np.prod(numbers)
+
 if(__name__ == '__main__'):             #메인함수
     fp = open("time_record.txt","a",encoding='utf - 8')
     name = input("이름을 입력하세요")
