@@ -9,8 +9,12 @@ import tkinter.ttk
 import tkinter as tk
 import os
 
+
+def del_t():
+    tree.delete(*tree.get_children())
 def openxl(): #기본 물품에 item 추가
-    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx') #엑셀 파일 열기 '' 사이에 경로 수정
+    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx')
+    # os.system(home)
     def close():
         openxl.quit()
         openxl.destroy()
@@ -41,8 +45,6 @@ def openxl(): #기본 물품에 item 추가
         first()
         close()
 
-
-    #
     openxl=Tk()
 
     openxl.geometry("300x170")  # 창의 크기
@@ -199,18 +201,27 @@ def check(): #값 출력해서 확인하는 용도
         count += 1
     path = Path(room1)
     messagebox.showinfo("", str(path.is_file()))
+    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\netcoreapp3.1\\WinFormsApp11.exe')
     # messagebox.showinfo("",)
-    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\netcoreapp3.1\\WinFormsApp11.exe') # c# exe 파일 열기
 def save(): #저장관련: 개인정보, tree에 있는 목록 저장
     room=빈소.get()
-    messagebox.showinfo("","빈소"+room+"에 저장 하시겠습니까?")
+    pinfo=[room,고인명.get(),상주명.get(),ID.get()]
+    empty=False
 
+    for i in range (len(pinfo)):
+        if(pinfo[i]==""):
+            empty=True
+    if(empty==True):
+        messagebox.showinfo("", "정보를 입력해 주세요")
+        empty=False
+    else:
+        save_go()
 
+    # messagebox.showinfo("","빈소"+room+"에 저장 하시겠습니까?")
+def save_go():
+    room = 빈소.get()
+    if ((room=="1")|(room=="2")|(room=="3")|(room=="4")|(room=="5")|(room=="6")):
 
-#저장 항목: ID, 고인명, 상주명, 빈소, tree
-    if (room == ""):
-        messagebox.showinfo("", "빈소를 정해주세요")
-    elif ((room=="1")|(room=="2")|(room=="3")|(room=="4")|(room=="5")|(room=="6")):
 
         # 빈소에 넣은 숫자에 따라 사용하는 엑셀이 달라짐
         if (room == "1"):
@@ -219,6 +230,9 @@ def save(): #저장관련: 개인정보, tree에 있는 목록 저장
             # items = nwb["items"]  # +sheet 이름 2
             nwb.remove(nwb["items"])
             items = nwb.create_sheet("items")
+
+
+
 
             info['A1'] = ID.get()
             info['B1'] = 고인명.get()
@@ -260,6 +274,13 @@ def save(): #저장관련: 개인정보, tree에 있는 목록 저장
             # items = nwb["items"]  # +sheet 이름 2
             nwb.remove(nwb["items"])
             items = nwb.create_sheet("items")
+
+            if (ID.get() == ""):
+                info['A1'] = " "
+            if (상주명.get() == ""):
+                info['A1'] = " "
+            if (고인명.get() == ""):
+                info['A1'] = " "
 
             info['A1'] = ID.get()
             info['B1'] = 고인명.get()
@@ -338,7 +359,7 @@ def save(): #저장관련: 개인정보, tree에 있는 목록 저장
 def clickEvent(event): #리스트박스 더블 클릭하면 인덱스 받아서 tree에 추가
     eventNum=list(리스트.curselection())
     num=eventNum[0]
-    # messagebox.showinfo("",event)
+    # messagebox.showinfo("",num)
 
     row=[]
     count=0
@@ -353,7 +374,6 @@ def clickEvent(event): #리스트박스 더블 클릭하면 인덱스 받아서 
 
     # messagebox.showinfo("",str(og_l[num+1][2])+" "+str(og_l[num+1][3])+" "+str(og_l[num+1][4])+" "+str(og_l[num+1][5]))
 
-#------
 
     global tree
     del tree
@@ -392,12 +412,12 @@ def clickEvent(event): #리스트박스 더블 클릭하면 인덱스 받아서 
     # treelist.append(get)
     new_l.append(get)
 
-
-
+    del_t()
         # messagebox.showinfo("", og_l[num+1][i])
     if (len(new_l)>=1):
         for i in range(len(new_l)):
-            tree.insert('', 'end', text=i+1, values=new_l[i])
+
+            tree.insert('', 'end', text="", values=new_l[i])
             # messagebox.showinfo("", new_l[i])
             # messagebox.showinfo("", len(new_l))
         # messagebox.showinfo("treelist[i]",new_l[i])
@@ -422,41 +442,135 @@ def clickEvent_delete(event):
     selected_item = tree.selection()[0]  ## get selected item
     # new_l=[]
     tree.delete(selected_item)
-def clear_tree(): #빈 tree 출력
-    c_table=True
+def loadxl():
+    def close():
+        loadxl.quit()
+        loadxl.destroy()
+    def load_btn():
+        def click_delete(event):
+            selectedItem = tree.selection()[0]
+            for i in range(len(new_l)):  # 삭제될 tree 요소를 list에서도 삭제
+                if (tree.item(selectedItem)['values'][0] == new_l[i][0]):
+                    new_l.remove(new_l[i])
+                    break;
+            selection = tree.selection()[0]
+            tree.delete(selection)
 
-    # tree = tkinter.ttk.Treeview(win, columns=["one", "two", "three", "four", "five"],
-    #                             displaycolumns=["one", "two", "three", "four", "five"], height=24)
-    #
-    # tree.column("#0", width=10, anchor="center")
-    # tree.heading("#0", text="", anchor="center")
-    #
-    # tree.column("#1", width=100, anchor="center")
-    # tree.heading("#1", text="물품명", anchor="center")
-    #
-    # tree.column("#2", width=100, anchor="center")
-    # tree.heading("#2", text="단위", anchor="center")
-    #
-    # tree.column("#3", width=100, anchor="center")
-    # tree.heading("#3", text="단가", anchor="center")
-    #
-    # tree.column("#4", width=100, anchor="center")
-    # tree.heading("#4", text="수량", anchor="center")
-    #
-    # tree.column("#5", width=100, anchor="center")
-    # tree.heading("#5", text="금액", anchor="center")
-    #
-    # tree.place(x=170, y=210)
-    #
-    # c_table= False
-    # clickEvent_delete(c_table)
+        roomNum=l_room.get()
+        # messagebox.showinfo("",roomNum)
 
+        rooms=[room1,room2,room3,room4,room5,room6]
+
+        for i in range(6): #사용할 시트를 찾아서 시트에 맞는 info,items 사용
+            nwb = openpyxl.load_workbook(rooms[i])
+            info = nwb["info"]
+            items = nwb["items"]
+
+            if (roomNum==info.cell(row=1, column=4).value): #맞는 빈소를 찾으면 멈추고 for문 종료
+                # messagebox.showinfo("", "True")
+                break
+
+        ID.delete(0,END)
+        고인명.delete(0, END)
+        상주명.delete(0, END)
+        빈소.delete(0, END)
+
+        ID.insert(0,info.cell(row=1, column=1).value)
+        고인명.insert(0,info.cell(row=1, column=2).value)
+        상주명.insert(0,info.cell(row=1, column=3).value)
+        빈소.insert(0,info.cell(row=1, column=4).value)
+
+
+
+
+        tree = tkinter.ttk.Treeview(win, columns=["one", "two", "three", "four", "five"],
+                                    displaycolumns=["one", "two", "three", "four", "five"], height=24)
+
+        tree.column("#0", width=10, anchor="center")
+        tree.heading("#0", text="", anchor="center")
+
+        tree.column("#1", width=100, anchor="center")
+        tree.heading("#1", text="물품명", anchor="center")
+
+        tree.column("#2", width=100, anchor="center")
+        tree.heading("#2", text="단위", anchor="center")
+
+        tree.column("#3", width=100, anchor="center")
+        tree.heading("#3", text="단가", anchor="center")
+
+        tree.column("#4", width=100, anchor="center")
+        tree.heading("#4", text="수량", anchor="center")
+
+        tree.column("#5", width=100, anchor="center")
+        tree.heading("#5", text="금액", anchor="center")
+
+
+
+        count=0
+        for rows in items.iter_rows():  # 기본 물품의 rows 값
+            count += 1
+        # messagebox.showinfo("","선택한 시트의 rows 갯수"+str(count))
+
+
+        put=[]
+        get=[]
+        new_l.clear()
+        for i in range(1,count+1):
+            for j in range(1,6):
+                get.append(items.cell(row=i,column=j).value)
+                # messagebox.showinfo("",items.cell(row=i,column=j).value)
+            put.append(get)
+            new_l.append(get)
+            get=[]
+        # messagebox.showinfo("",len(put))
+        for i in range(len(put)):
+            tree.insert('', 'end', text=" ", values=put[i])
+
+
+        tree.place(x=170, y=210)
+        tree.bind("<Double-Button-1>", click_delete) #-----------------------------------------------------
+
+
+        # selected_item = tree.item()  ## get selected item
+        # tree.delete(selected_item)
+        # clear_new_l()
+        # messagebox.showinfo(new_l[0])
+        # tree.bind("<Double-Button-1>", click_del)
+
+        close()
+
+
+
+    loadxl=Tk()
+
+    loadxl.geometry("300x120")  # 창의 크기
+    loadxl.title("불러오기")  # 창의 제목
+    loadxl.option_add("*Font", "맑은고딕 11")  # 전체 폰트
+
+    l_room = Label(loadxl)
+    l_room.config(text="빈소 호수", width=10, relief="solid")
+    l_room.place(x=20,y=20)
+
+    l_room = Entry(loadxl)
+    l_room.config(width=20, relief="solid", borderwidth=2)
+
+    l_room.place(x=110,y=20)
+
+    load = Button(loadxl, text="저장")
+    load.config(width=10, height=3,command=load_btn)
+    load.place(x=35,y=55)
+
+    cancel = Button(loadxl, text="취소")
+    cancel.config(width=10, height=3,command=close)
+    cancel.place(x=145,y=55)
+
+    loadxl.mainloop()
 
 
 
 ##################################################   global variable   ##########################
 
-home = 'C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx' #기본 물품 엑셀 위치 저장
+home = 'worksheet\\test.xlsx' #기본 물품 엑셀 위치 저장
 
 room1='C:\\Users\\user\\Desktop\\python\\worksheet\\room_one.xlsx'
 room2='C:\\Users\\user\\Desktop\\python\\worksheet\\room_two.xlsx'
@@ -490,7 +604,7 @@ c_table=False
 
 ##################################################   tkinter   ##########################
 win = tk.Tk() # 창 생성
-win.geometry("1000x720") # 창의 크기
+win.geometry("750x720") # 창의 크기
 win.title("장례식장 재고관리 프로그램 Ver1.221123") # 창의 제목
 win.option_add("*Font", "맑은고딕 12") # 전체 폰트
 
@@ -507,6 +621,9 @@ ID_lab.config(text = "ID", width=10, relief="solid")
 상주명_lab.config(text = "상주명",width=10, relief="solid")
 빈소_lab = Label(win)
 빈소_lab.config(text = "빈소", width=10, relief="solid")
+
+기간 = Label(win)
+기간.config(text = "빈소 기간 : XXXX / XX / XX ~ XXXX / XX / XX \n안치 기간 : XXXX / XX / XX ~ XXXX / XX / XX", width=47, relief="solid",height=3)
 
 수납금액_lab = Label(win)
 수납금액_lab.config(text = "수납금액", width=10, relief="solid")
@@ -540,19 +657,19 @@ ID.config(width=10,relief="solid",borderwidth=2)
 저장 = Button(win, text = "저장")
 저장.config(width=14,height=2,command=save)
 불러오기 = Button(win, text = "불러오기")
-불러오기.config(width=14,height=2)
+불러오기.config(width=14,height=2, command=loadxl)
 닫기 = Button(win, text = "닫기",command=close)
-닫기.config(width=14,height=3)
-물품추가 = Button(win, text = "물품추가",command=openxl) #엑셀에서 물품 추가 후 프로그램 재 가동 필요
-물품추가.config(width=9,height=2)
+닫기.config(width=10,height=3)
+물품추가 = Button(win, text = "물품추가",command=openxl)
+물품추가.config(width=10,height=1)
 물품삭제 = Button(win, text = "물품삭제")
-물품삭제.config(width=9,height=2)
+물품삭제.config(width=7,height=2)
 
 
 물품비우기 = Button(win, text = "물품 비우기")
-물품비우기.config(width=9,height=2, command=clear_tree)
-Set = Button(win, text = "checker")
-Set.config(width=9,height=2, command=check)
+물품비우기.config(width=7,height=2)
+Set = Button(win, text = "프린트")
+Set.config(width=10,height=3, command=check)
 
 first()
 
@@ -563,30 +680,31 @@ ID_lab.place(x=10,y=10)
 고인명_lab.place(x=210,y=10)
 상주명_lab.place(x=210,y=50)
 빈소_lab.place(x=10,y=50)
-수납금액_lab.place(x=620,y=10)
-받은금액_lab.place(x=620,y=60)
-거스름돈_lab.place(x=620,y=110)
+수납금액_lab.place(x=420,y=10)
+받은금액_lab.place(x=420,y=50)
+거스름돈_lab.place(x=420,y=90)
+기간.place(x=10,y=90)
 
 #엔트리 위치
-ID.place(x=110,y=10)
-고인명.place(x=310,y=10)
-상주명.place(x=310,y=50)
-빈소.place(x=110,y=50)
+ID.place(x=100,y=10)
+고인명.place(x=300,y=10)
+상주명.place(x=300,y=50)
+빈소.place(x=100,y=50)
 
 
-수납금액.place(x=720,y=10)
-받은금액.place(x=720,y=60)
-거스름돈.place(x=720,y=110)
+수납금액.place(x=510,y=10)
+받은금액.place(x=510,y=50)
+거스름돈.place(x=510,y=90)
 
 #버튼 위치
 
-저장.place(x= 440, y=10)
-불러오기.place(x=440,y=70)
-닫기.place(x=440, y=130)
-물품추가.place(x=700, y=260)
-물품삭제.place(x=700, y=310)
-물품비우기.place(x=700, y=210)
-Set.place(x=700, y=150)
+저장.place(x= 10, y=150)
+불러오기.place(x=160,y=150)
+닫기.place(x=560, y=120)
+물품추가.place(x=48, y=207)
+# 물품삭제.place(x=700, y=310)
+# 물품비우기.place(x=700, y=230)
+Set.place(x=430, y=120)
 tree.place(x=170,y=210)
 리스트.place(x=48, y=236)
 
