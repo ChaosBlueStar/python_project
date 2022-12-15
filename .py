@@ -200,7 +200,7 @@ def check(): #값 출력해서 확인하는 용도
     path = Path(room1)
     messagebox.showinfo("", str(path.is_file()))
     # messagebox.showinfo("",)
-    os.system('C:\\Users\\user\\Desktop\\python\\worksheet\\netcoreapp3.1\\WinFormsApp11.exe') # c# exe 파일 열기
+    os.system('netcoreapp3.1\\WinFormsApp11.exe') # c# exe 파일 열기
 def save(): #저장관련: 개인정보, tree에 있는 목록 저장
     room=빈소.get()
     messagebox.showinfo("","빈소"+room+"에 저장 하시겠습니까?")
@@ -456,14 +456,14 @@ def clear_tree(): #빈 tree 출력
 
 ##################################################   global variable   ##########################
 
-home = 'C:\\Users\\user\\Desktop\\python\\worksheet\\test.xlsx' #기본 물품 엑셀 위치 저장
+home = 'test.xlsx' #기본 물품 엑셀 위치 저장
 
-room1='C:\\Users\\user\\Desktop\\python\\worksheet\\room_one.xlsx'
-room2='C:\\Users\\user\\Desktop\\python\\worksheet\\room_two.xlsx'
-room3='C:\\Users\\user\\Desktop\\python\\worksheet\\room_three.xlsx'
-room4='C:\\Users\\user\\Desktop\\python\\worksheet\\room_four.xlsx'
-room5='C:\\Users\\user\\Desktop\\python\\worksheet\\room_five.xlsx'
-room6='C:\\Users\\user\\Desktop\\python\\worksheet\\room_six.xlsx'
+room1='room_one.xlsx'
+room2='room_two.xlsx'
+room3='room_three.xlsx'
+room4='room_four.xlsx'
+room5='room_five.xlsx'
+room6='room_six.xlsx'
 
 nwb = openpyxl.Workbook()  # 엑셀 생성
 info=nwb.create_sheet("info")  # +sheet 이름 1
