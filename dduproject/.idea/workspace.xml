@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20cd51d5-2c35-4625-b057-9109ed61bae2" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/ddu_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddu_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ddu_3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ddupython.py" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ddu_4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/python"
+    "last_opened_file_path": "C:/Users/user/Desktop/python/dduproject"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
