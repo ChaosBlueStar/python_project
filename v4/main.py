@@ -173,11 +173,6 @@ def exsave(): #물품명 읽어오기
 
     print(row[0])
 
-def testupdateing
-    and
-    btn2()
-    center_tree()
-    def
 
 
 if __name__ == "__main__":
