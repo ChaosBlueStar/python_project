@@ -163,6 +163,15 @@ def save(): #개인 정보 물품에 저장
             info_sheets[0].cell(x,y).value=new_p[x-1][y-1]
             info_file.save(info_xl)
 
+def exsave(): #물품명 읽어오기
+
+    row = []
+
+    for x in range(1, (info_sheets.max_row + 1)):
+        row.append(info_sheets.cell(x, 1).value)
+
+    print(row[0])
+
 
 if __name__ == "__main__":
 #시트기준
@@ -191,6 +200,9 @@ if __name__ == "__main__":
 
     global new_p #중앙 목록 폼 출력용
     new_p=[]
+
+
+    exsave()
 
 
 
