@@ -164,7 +164,7 @@ def save(): #개인 정보 물품에 저장
             info_sheets[0].cell(x,y).value=new_p[x-1][y-1]
             info_file.save(info_xl)
 
-"""def exsave(): #물품명 읽어오기
+def exsave(): #물품명 읽어오기
 
     info_xl = 'xl/personal.xlsx'
     info_file = openpyxl.load_workbook(info_xl, data_only=True)
@@ -177,7 +177,7 @@ def save(): #개인 정보 물품에 저장
         row_1.append(info_sheets.cell(x, 1).value)
 
 
-    print(row_1[0])"""
+    print(row_1[0])
 
 
 
