@@ -10,6 +10,7 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 import tkinter.ttk
 import tkinter as tk
 
+
 #왼쪽 목록 관련 함수
 def del_t(): #오른쪽 트리 삭제용
     tree.delete(*tree.get_children())
@@ -171,13 +172,13 @@ def exsave(): #물품명 읽어오기
     info_sheets = [info_file['빈소1']]
 
 
-    row_1 = []
+    row = []
 
     for x in range(1, (info_sheets.max_row + 1)):
-        row_1.append(info_sheets.cell(x, 1).value)
+        row.append(info_sheets.cell(x, 1).value)
 
 
-    print(row_1[0])
+    print(row[0])
 
 
 
@@ -206,6 +207,7 @@ if __name__ == "__main__":
 
 
     #exsave()
+    info_sheets.max_row
 
     global temp_sheet
 
