@@ -167,12 +167,12 @@ def save(): #개인 정보 물품에 저장
 
 def exsave(): #물품명 읽어오기
 
-    row = []
+    row1 = []
 
-    for x in range(1, (info_sheets.max_row + 1)):
-        row.append(info_sheets.cell(x, 1).value)
-
-    print(row[0])
+    for x in range(1, (readsh.max_row + 1)):
+        row1.append(readsh.cell(x, 1).value)
+        
+    print(row1[0])
 
 
 if __name__ == "__main__":
@@ -192,8 +192,11 @@ if __name__ == "__main__":
     og_file= openpyxl.load_workbook(home, data_only=True) #초기 시트 위치 저장(값으로)
     info_file=openpyxl.load_workbook(info_xl,data_only=True) #개인정보, 빈소별 물품정보 저장 공간(값으)
 
-    info_sheets=info_file['빈소1'] #지금은 하나만 사용하지만 빈소 창이 생기면 9개로 늘어날 것임
+    info_sheets=[info_file['빈소1']] #지금은 하나만 사용하지만 빈소 창이 생기면 9개로 늘어날 것임
     og_sheets=[og_file['식당판매'], og_file['매점판매'], og_file['장의용품'], og_file['상복'], og_file['기타']]  #시트 리스트에 저장 시트 이름 바꾸면 같이 바꿔야 함
+
+    readsh=info_file['빈소1']
+
 
     og_row=['','','','',''] #길이 저장
 
