@@ -167,12 +167,12 @@ def save(): #개인 정보 물품에 저장
 
 def exsave(): #물품명 읽어오기
 
-    row1 = []
+    row = []
 
-    for x in range(1, (readsh.max_row + 1)):
-        row1.append(readsh.cell(x, 1).value)
+    for x in range((readsh.max_column),1):
+        row.append(readsh.cell(x, 1).value)
         
-    print(row1[0])
+    print(row[0])
 
 
 if __name__ == "__main__":
