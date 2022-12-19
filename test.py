@@ -10,15 +10,15 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 import tkinter.ttk
 import tkinter as tk
 
-def te():
+
+
+def te(info_sheets):
 
     info_sheets.cell(row = 1, column = repeat().value)
 
 
 
 def repeat():
-
-
 
     i = 0
     while True:
