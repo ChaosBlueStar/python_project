@@ -12,7 +12,7 @@ import tkinter as tk
 
 
 
-def te(info_sheets):
+def te(info_sheets, cell):
 
     info_sheets.cell(row = 1, column = repeat().value)
 
@@ -50,4 +50,7 @@ info_sheets = [info_file['빈소1']]  # 지금은 하나만 사용하지만 빈�
 
 #exsave()
 
-print(te())
+#print(te())
+
+print(hasattr(info_sheets, 'cell'))
+print(hasattr(info_sheets, 'max_row'))

@@ -165,7 +165,7 @@ def save(): #개인 정보 물품에 저장
             info_sheets[0].cell(x,y).value=new_p[x-1][y-1]
             info_file.save(info_xl)
 
-def exsave(info_sheets, max_row, cell): #물품명 읽어오기
+def exsave(): #물품명 읽어오기
 
     row = []
 
@@ -201,10 +201,10 @@ if __name__ == "__main__":
     og_row=['','','','',''] #길이 저장
 
 
-    #exsave()
+    exsave()
 
-    print(hasattr(info_sheets, 'cell'))
-    print(hasattr(info_sheets, 'max_row'))
+    #print(hasattr(info_sheets, 'cell'))
+    #print(hasattr(info_sheets, 'max_row'))
 
 
     global temp_sheet
