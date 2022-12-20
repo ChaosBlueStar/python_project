@@ -165,20 +165,14 @@ def save(): #개인 정보 물품에 저장
             info_sheets[0].cell(x,y).value=new_p[x-1][y-1]
             info_file.save(info_xl)
 
-def exsave(): #물품명 읽어오기
+def exsave(): #빈소에 등록 된 물품명 읽어오기
 
     row = []
-    sht = []
 
-    for x in range(1,(readsh.max_row + 1)):
-        if(readsh.cell(x,1).value == None) | (readsh.cell(x, 1).value == '') | (readsh.cell(x,1).value == 0):
-            break
-        else:
-            row.append(readsh.cell(x, 1).value)
+    for x in range(1,(readsh.max_row + 1)): # 행의 끝까지 반복
+        row.append(readsh.cell(x, 1).value) # row에 값 넣기 / 1을 바꾸면 열이 바뀜
 
-    sht.append(row)
-
-    print(*row)
+    print(*row) #row 내의 목록 전체 출력 (테스트용)
 
 
 if __name__ == "__main__":
