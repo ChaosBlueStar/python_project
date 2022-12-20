@@ -48,11 +48,16 @@ def compare():
 
 
 def write():
-    for x in range ((readtrade.max_row + 1), 6):
-        readtrade.cell(x).value = '2'
+    i = 7
+    while i <= 10:
+    #while i >= readtrade.max_row + 1:
+        readtrade.cell(i, 6).value = '2'
+    i += 1
+    '''for x in range ((readtrade.max_row + 1), 6):
+        readtrade.cell(x).value = '2'''''
 
 
-write()
+#write()
 trade_file.save('xl/trade.xlsx')
 
 
