@@ -174,6 +174,13 @@ def exsave(): #빈소에 등록 된 물품명 읽어오기
 
     print(*row) #row 내의 목록 전체 출력 (테스트용)
 
+def exsave2(): #거래명세서에 등록 된 물품명 읽어오기
+    row = []
+    
+    for x in range(7, (readtrade.max_row + 1)): # 7번행부터 (물품명 시작) 끝까지 반복
+        row.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
+
+    print(*row) # row 내의 목록 전체 출력 (테스트용)
 
 if __name__ == "__main__":
 #시트기준
@@ -188,21 +195,24 @@ if __name__ == "__main__":
 
     home = 'xl/test.xlsx'
     info_xl='xl/personal.xlsx'
+    trade_xl='xl/trade.xlsx'
 
     og_file= openpyxl.load_workbook(home, data_only=True) #초기 시트 위치 저장(값으로)
     info_file=openpyxl.load_workbook(info_xl,data_only=True) #개인정보, 빈소별 물품정보 저장 공간(값으)
+    trade_file=openpyxl.load_workbook(trade_xl,data_only=True)
+
 
     info_sheets=[info_file['빈소1']] #지금은 하나만 사용하지만 빈소 창이 생기면 9개로 늘어날 것임
     og_sheets=[og_file['식당판매'], og_file['매점판매'], og_file['장의용품'], og_file['상복'], og_file['기타']]  #시트 리스트에 저장 시트 이름 바꾸면 같이 바꿔야 함
-
-    readsh=info_file['빈소1']
+    readsh=info_file['빈소1']  #Hong info_sheets에 리스트를 2개씩 사용해서 읽히지않아 추가 작성
+    readtrade=trade_file['거래명세서'] #거래명세서 시트 읽어오기
 
 
     og_row=['','','','',''] #길이 저장
 
 
     exsave()
-
+    exsave2()
     #print(hasattr(info_sheets, 'cell'))
     #print(hasattr(info_sheets, 'max_row'))
 
