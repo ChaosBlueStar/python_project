@@ -172,7 +172,7 @@ def exsave(): #빈소에 등록 된 물품명 읽어오기
     for x in range(1,(readsh.max_row + 1)): # 행의 끝까지 반복
         row.append(readsh.cell(x, 1).value) # row에 값 넣기 / 1을 바꾸면 열이 바뀜
 
-    print(*row) #row 내의 목록 전체 출력 (테스트용)
+    #print(*row) #row 내의 목록 전체 출력 (테스트용)
 
 def exsave2(): #거래명세서에 등록 된 물품명 읽어오기
     row = []
@@ -180,7 +180,25 @@ def exsave2(): #거래명세서에 등록 된 물품명 읽어오기
     for x in range(7, (readtrade.max_row + 1)): # 7번행부터 (물품명 시작) 끝까지 반복
         row.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
 
-    print(*row) # row 내의 목록 전체 출력 (테스트용)
+    #print(*row) # row 내의 목록 전체 출력 (테스트용)
+
+def exinsert():
+
+    row = []
+
+    for x in range(7, (readtrade.max_row + 1)):
+        row.append(readtrade.cell(x, 6).value)
+
+    print(*row)
+
+'''def compare():
+    exsave() == exsave2()
+    if True:
+        print('2')
+    else:
+        print('1')'''
+
+
 
 if __name__ == "__main__":
 #시트기준
@@ -211,11 +229,10 @@ if __name__ == "__main__":
     og_row=['','','','',''] #길이 저장
 
 
-    exsave()
-    exsave2()
-    #print(hasattr(info_sheets, 'cell'))
-    #print(hasattr(info_sheets, 'max_row'))
-
+    #exsave()
+    #exsave2()
+    #compare()
+    exinsert()
 
     global temp_sheet
 
