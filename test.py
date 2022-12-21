@@ -21,24 +21,22 @@ info_sheets = [info_file['빈소1']]  # 지금은 하나만 사용하지만 빈�
 readsh=info_file['빈소1']  #Hong info_sheets에 리스트를 2개씩 사용해서 읽히지않아 추가 작성
 readtrade=trade_file['거래명세서'] #거래명세서 시트 읽어오기
 
-def exsave():  # 빈소에 등록 된 물품명 읽어오기
+#def exsave():  # 빈소에 등록 된 물품명 읽어오기
 
-    row = []
+row1 = []
+for x in range(1, (readsh.max_row + 1)):  # 행의 끝까지 반복
+    row1.append(readsh.cell(x, 1).value)  # row에 값 넣기 / 1을 바꾸면 열이 바뀜
 
-    for x in range(1, (readsh.max_row + 1)):  # 행의 끝까지 반복
-        row.append(readsh.cell(x, 1).value)  # row에 값 넣기 / 1을 바꾸면 열이 바뀜
 
-    row = []
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
 
-def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
-    row = []
+#def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
+row2 = []
+for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 끝까지 반복
+    row2.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
 
-    for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 끝까지 반복
-        row.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
 
-    row = []
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
@@ -49,15 +47,19 @@ def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
     else:
         print('미일치')'''
 
-def ttt():
+#def ttt():
 
-    C = set(exsave()) & set(exsave2())
+#C = set(row1) & set(row2)
     #if C is not None:
-     #   for x in C:
-      #      print(x)
+       # for x in C:
+          #  print(x)
 
 
-    print(C)
+print(row1 == row2)
+
+
+
+
 
 '''try:
     ttt()
@@ -79,4 +81,4 @@ except Exception as e:
 #write()
 trade_file.save('xl/trade.xlsx')
 
-ttt()
+#ttt()
