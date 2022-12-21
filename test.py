@@ -28,7 +28,8 @@ def exsave():  # 빈소에 등록 된 물품명 읽어오기
     for x in range(1, (readsh.max_row + 1)):  # 행의 끝까지 반복
         row.append(readsh.cell(x, 1).value)  # row에 값 넣기 / 1을 바꾸면 열이 바뀜
 
-    print(*row)  # row 내의 목록 전체 출력 (테스트용)
+    row = []
+    #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
 
 def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
@@ -36,6 +37,8 @@ def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
 
     for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 끝까지 반복
         row.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
+
+    row = []
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
@@ -49,11 +52,17 @@ def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
 def ttt():
 
     C = set(exsave()) & set(exsave2())
+    #if C is not None:
+     #   for x in C:
+      #      print(x)
 
 
     print(C)
 
-    return C
+'''try:
+    ttt()
+except Exception as e:
+    print(e)'''
 
 '''def write():
     i = 7
