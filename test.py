@@ -50,12 +50,20 @@ for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 
 #def ttt():
 
 #C = set(row1) & set(row2)
+#D = [i for i, j in zip(row1, row2)if i == j]
+
+D = list(set(row1).intersection(row2)) # row1, row2의 중복 값 출력
+
+#D = list(set(row1) - set(row2)) # row1, row2 서로 다른 값 출력
+E = list(set(row2) - set(row1)) # row1, row2 서로 다른 값 출력
+print(D,E)
     #if C is not None:
-       # for x in C:
-          #  print(x)
+        #for x in C:
+            #print(x)
 
+#print(list(C))
 
-print(row1 == row2)
+#print(row1 == row2)
 
 
 
