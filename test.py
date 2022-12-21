@@ -39,30 +39,35 @@ def exsave2():  # 거래명세서에 등록 된 물품명 읽어오기
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
-def compare():
+'''def compare():
     a = {exsave() == exsave2()}
     if a == "치즈김밥":
         print('일치')
     else:
-        print('미일치')
+        print('미일치')'''
+
+def ttt():
+
+    C = set(exsave()) & set(exsave2())
 
 
-def write():
+    print(C)
+
+    return C
+
+'''def write():
     i = 7
-    while i <= 10:
+    while i <= 20:
+        if i == (readtrade.max_row + 1):
+            break
     #while i >= readtrade.max_row + 1:
-        readtrade.cell(i, 6).value = '2'
-    i += 1
-    '''for x in range ((readtrade.max_row + 1), 6):
-        readtrade.cell(x).value = '2'''''
+    readtrade.cell(i, 6).value = '2'
+    i += 1'''
+    #for x in range ((readtrade.max_row + 1), 6):
+     #   readtrade.cell(x).value = '2' """
 
 
 #write()
 trade_file.save('xl/trade.xlsx')
 
-
-
-
-
-
-compare()
+ttt()
