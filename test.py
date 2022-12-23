@@ -49,8 +49,8 @@ for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 
 
 #def ttt():
 
-#C = set(row1) & set(row2)
-#D = [i for i, j in zip(row1, row2)if i == j]
+#C = set(row1) & set(row2) # set & 비교
+#D = [i for i, j in zip(row1, row2)if i == j] #리스트 값 비교
 
 D = list(set(row1).intersection(row2)) # row1, row2의 중복 값 출력
 
