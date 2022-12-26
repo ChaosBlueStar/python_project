@@ -53,6 +53,8 @@ comtest()
     else:
         print('미일치')"""
 
+# 정상 작동 확인하기
+
 #def ttt():
 
 #C = set(row1) & set(row2) # set & 비교
@@ -71,7 +73,7 @@ comtest()
 
 #print(row1 == row2)
 
-
+# 정상 작동 확인하기 ddu2022 레파지토리에서 작업중
 
 
 
