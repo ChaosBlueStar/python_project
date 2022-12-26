@@ -36,11 +36,17 @@ row2 = []
 for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 끝까지 반복
     row2.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
 
-def comtest(): #리스트 내의 값 하나하나 비교( 전체비교 x )
+'''def comtest(): #리스트 내의 값 하나하나 비교( 전체비교 x ) 반복문 이용 가능하면 이용
     for row1i, row2i in zip(row1, row2):
         print(row1i, row2i, row1i == row2i)
 
-comtest()
+comtest()'''
+
+def comte2():
+    diff = [row1i == row2[i] for i, row1i in enumerate(a)]
+        print(diff)
+    for row1, row1i in enumerate(a):
+        print(row1i, row2[i], row1i ==row2[i])
 
 
 
@@ -90,6 +96,7 @@ except Exception as e:
     i += 1'''
     #for x in range ((readtrade.max_row + 1), 6):
      #   readtrade.cell(x).value = '2' """
+
 
 
 #write()
