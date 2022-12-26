@@ -48,8 +48,10 @@ def comte2(): #def comtest와 같은 동작 ( 전체비교 x ) 정상 작동 확
     for i, row1i in enumerate(row1):
         print(row1i, row2[i], row1i == row2[i])
 
-comte2()
+#comte2()
 
+rowt = [value for value in row1 if value in row2] #리스트 두개 중 같은 값만 출력
+print(rowt)
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
