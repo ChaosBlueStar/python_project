@@ -182,7 +182,7 @@ def exsave2(): #거래명세서에 등록 된 물품명 읽어오기
 
     print(*row) # row 내의 목록 전체 출력 (테스트용)
 
-'''def exinsert():
+'''def exinsert():  #일치하는 값 입력
 
     row = []
 

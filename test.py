@@ -36,6 +36,12 @@ row2 = []
 for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 끝까지 반복
     row2.append(readtrade.cell(x, 3).value)  # C열부터 (물품명) row에 값넣기
 
+def comtest(): #리스트 내의 값 하나하나 비교( 전체비교 x )
+    for row1i, row2i in zip(row1, row2):
+        print(row1i, row2i, row1i == row2i)
+
+comtest()
+
 
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
@@ -52,11 +58,11 @@ for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 
 #C = set(row1) & set(row2) # set & 비교
 #D = [i for i, j in zip(row1, row2)if i == j] #리스트 값 비교
 
-D = list(set(row1).intersection(row2)) # row1, row2의 중복 값 출력
+#D = list(set(row1).intersection(row2)) # row1, row2의 중복 값 출력
 
 #D = list(set(row1) - set(row2)) # row1, row2 서로 다른 값 출력
-E = list(set(row2) - set(row1)) # row1, row2 서로 다른 값 출력
-print(D,E)
+#E = list(set(row2) - set(row1)) # row1, row2 서로 다른 값 출력
+#print(D,E)
     #if C is not None: #None 값 제외 후 받기
         #for x in C:
             #print(x)
