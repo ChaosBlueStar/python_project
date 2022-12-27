@@ -55,6 +55,12 @@ comtest()'''
 rowt = [value for value in row1 if value in row2] #리스트 두개 중 순서에 상관없이 같은 값만 출력 ( 교집합 ) * 유력
 print(rowt)
 
+row_range_all = readsh[2:readsh.max_row] # 엑셀 좌표값 찾기
+for rows in row_range_all:
+    for cell in rows:
+        print(cell.coordinate,end=" ")
+
+
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
 """def compare():
