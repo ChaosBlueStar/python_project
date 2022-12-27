@@ -44,15 +44,15 @@ for x in range(7, (readtrade.max_row + 1)):  # 7번행부터 (물품명 시작) 
 
 comtest()'''
 
-def comte2(): #def comtest와 같은 동작 ( 전체비교 x ) 정상 작동 확인
+'''def comte2(): #def comtest와 같은 동작 ( 전체비교 x ) 정상 작동 확인 / 같은 나열 순서상 같으면 True 다르면 False
     diff = [row1i == row2[i] for i, row1i in enumerate(row1)]
     print(diff)
     for i, row1i in enumerate(row1):
-        print(row1i, row2[i], row1i == row2[i])
+        print(row1i, row2[i], row1i == row2[i])'''
 
 #comte2()
 
-rowt = [value for value in row1 if value in row2] #리스트 두개 중 같은 값만 출력
+rowt = [value for value in row1 if value in row2] #리스트 두개 중 순서에 상관없이 같은 값만 출력 ( 교집합 ) * 유력
 print(rowt)
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
