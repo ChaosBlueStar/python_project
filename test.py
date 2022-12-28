@@ -63,26 +63,6 @@ for rows in row_range_all:
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용)
 
-"""def compare():
-    a = {exsave() == exsave2()}
-    if a == "치즈김밥":
-        print('일치')
-    else:
-        print('미일치')"""
-
-#def ttt():
-
-#C = set(row1) & set(row2) # set & 비교
-#D = [i for i, j in zip(row1, row2)if i == j] #리스트 값 비교
-
-#D = list(set(row1).intersection(row2)) # row1, row2의 중복 값 출력
-
-#D = list(set(row1) - set(row2)) # row1, row2 서로 다른 값 출력
-#E = list(set(row2) - set(row1)) # row1, row2 서로 다른 값 출력
-#print(D,E)
-    #if C is not None: #None 값 제외 후 받기
-        #for x in C:
-            #print(x)
 
 #print(list(C))
 
