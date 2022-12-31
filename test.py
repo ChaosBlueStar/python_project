@@ -61,7 +61,7 @@ for rows in row_range_all:
         print(cell.coordinate,end=" ")
 
 
-    #print(*row)  # row 내의 목록 전체 출력 (테스트용)
+    #print(*row)  # row 내의 목록 전체 출력 (테스트용) 선언x
 
 
 #print(list(C))
