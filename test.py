@@ -89,7 +89,7 @@ except Exception as e:
      #   readtrade.cell(x).value = '2' """
 
 
-
+#12월 말 본사 일정
 #write()
 trade_file.save('xl/trade.xlsx')
 
