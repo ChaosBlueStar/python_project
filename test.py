@@ -60,6 +60,7 @@ for rows in row_range_all:
     for cell in rows:
         print(cell.coordinate,end=" ")
 
+#동윤이형 제작 파일 def로 가져와서 이어붙이기
 
     #print(*row)  # row 내의 목록 전체 출력 (테스트용) 선언x
 
@@ -89,7 +90,7 @@ except Exception as e:
      #   readtrade.cell(x).value = '2' """
 
 
-#12월 말 본사 일정
+#12월 말 본사 일정 #충남도청
 #각각 비교 성공
 #비교한 값 옆 셀 출력
 #write()
