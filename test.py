@@ -93,6 +93,7 @@ except Exception as e:
 #12월 말 본사 일정 #충남도청
 #각각 비교 성공
 #비교한 값 옆 셀 출력
+###
 #write()
 trade_file.save('xl/trade.xlsx')
 
