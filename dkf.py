@@ -577,3 +577,6 @@ if __name__ == "__main__":
     Date.place(x=50, y=110)
 
     win.mainloop() # 창 실행
+    
+    #초ㅣ종 수정 진행중
+    #엑셀 연결 커맨드 , exe 인버팅
